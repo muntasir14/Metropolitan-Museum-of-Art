@@ -9,6 +9,10 @@ import UIKit
 
 class SearchScreenViewController: UIViewController {
 
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
