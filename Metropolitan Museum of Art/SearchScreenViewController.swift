@@ -13,8 +13,12 @@ class SearchScreenViewController: UIViewController {
     @IBOutlet weak var searchResultTableView: UITableView!
     @IBOutlet weak var favoriteCollectionView: UICollectionView!
     
-    var favoriteList: [String] = []
+    @IBOutlet weak var emptyLabel: UILabel!
+    @IBOutlet weak var searchForResultsLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var favoriteList: [String] = []
+    var searchResultList: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +44,10 @@ class SearchScreenViewController: UIViewController {
         favoriteCollectionView.dataSource = self
         favoriteCollectionView.delegate = self
         
-        favoriteList = PersistenceManager().getDefaults(forKey: "favoriteList")
+        favoriteList = PersistenceManager(forKey: "favoriteList").getDefaults()
+        
+        emptyLabel.isHidden = !favoriteList.isEmpty
+        searchForResultsLabel.isHidden = !searchResultList.isEmpty
     }
     
 }

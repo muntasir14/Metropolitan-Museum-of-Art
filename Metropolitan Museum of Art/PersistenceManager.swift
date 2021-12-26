@@ -10,20 +10,38 @@ import Foundation
 class PersistenceManager {
     
     let defaults = UserDefaults.standard
+    private var valueList: [String]
+    private var key: String
     
-    public func getDefaults(forKey: String) -> [String] {
-        
-        guard let list = defaults.stringArray(forKey: forKey) else {
-            return []
-        }
-        return list
+    init(forKey: String = "favoriteList") {
+        valueList = []
+        key = forKey
+        fetchList()
     }
     
-    public func addToDefaults(value: String, forKey: String) {
+    private func fetchList() {
         
-        var list = getDefaults(forKey: forKey)
+        guard let list = defaults.stringArray(forKey: key) else {
+            return
+        }
+        valueList = list
+    }
+    
+    public func getDefaults() -> [String] {
+        
+        return self.valueList
+    }
+    
+    public func addToDefaults(value: String) {
+        
+        var list = getDefaults()
         list.append(value)
-        defaults.setValue(list, forKey: forKey)
+        defaults.setValue(list, forKey: key)
+    }
+    
+    public func isInDefaultsList(value: String) -> Bool {
+        
+        return valueList.contains(value)
     }
     
 }
