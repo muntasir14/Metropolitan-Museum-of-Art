@@ -13,7 +13,7 @@ class SearchScreenViewController: UIViewController {
     @IBOutlet weak var searchResultTableView: UITableView!
     @IBOutlet weak var favoriteCollectionView: UICollectionView!
     
-    var favoriteList: [String]? = ["23", "18", "39"]
+    var favoriteList: [String] = []
     
     
     override func viewDidLoad() {
@@ -40,15 +40,7 @@ class SearchScreenViewController: UIViewController {
         favoriteCollectionView.dataSource = self
         favoriteCollectionView.delegate = self
         
-    }
-    
-    // UserDefaults configuration
-    func configureUserDefaults() {
-        
-        let def = UserDefaults.standard
-        def.setValue(favoriteList, forKey: "favoriteList")
-        favoriteList = def.stringArray(forKey: "favoriteList")
-        favoriteCollectionView.reloadData()
+        favoriteList = PersistenceManager().getDefaults(forKey: "favoriteList")
     }
     
 }
@@ -78,16 +70,13 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
 
 extension SearchScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        favoriteList?.count ?? 0
+        favoriteList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCollectionViewCell", for: indexPath) as! FavoriteCollectionViewCell
-        guard let list = favoriteList else {
-            return cell
-        }
-        cell.titleLabel.text = list[indexPath.row]
+        cell.titleLabel.text = favoriteList[indexPath.row]
         
         return cell
     }

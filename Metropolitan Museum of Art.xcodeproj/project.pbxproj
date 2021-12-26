@@ -15,6 +15,7 @@
 		161475252778F52A00412E1B /* SearchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161475242778F52A00412E1B /* SearchScreenViewController.swift */; };
 		1614752B2779091700412E1B /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1614752A2779091700412E1B /* SearchResultTableViewCell.swift */; };
 		1614752D2779112300412E1B /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1614752C2779112300412E1B /* FavoriteCollectionViewCell.swift */; };
+		1614752F277918E100412E1B /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1614752E277918E100412E1B /* PersistenceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		161475242778F52A00412E1B /* SearchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreenViewController.swift; sourceTree = "<group>"; };
 		1614752A2779091700412E1B /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		1614752C2779112300412E1B /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
+		1614752E277918E100412E1B /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				161475192778F47B00412E1B /* Assets.xcassets */,
 				1614751E2778F47B00412E1B /* Info.plist */,
 				161475242778F52A00412E1B /* SearchScreenViewController.swift */,
+				1614752E277918E100412E1B /* PersistenceManager.swift */,
 			);
 			path = "Metropolitan Museum of Art";
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				161475112778F47700412E1B /* AppDelegate.swift in Sources */,
 				161475252778F52A00412E1B /* SearchScreenViewController.swift in Sources */,
 				1614752B2779091700412E1B /* SearchResultTableViewCell.swift in Sources */,
+				1614752F277918E100412E1B /* PersistenceManager.swift in Sources */,
 				161475132778F47700412E1B /* SceneDelegate.swift in Sources */,
 				1614752D2779112300412E1B /* FavoriteCollectionViewCell.swift in Sources */,
 			);
