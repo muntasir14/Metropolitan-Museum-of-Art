@@ -70,7 +70,8 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let vc = (storyboard?.instantiateViewController(identifier: "DetailTableViewController"))!
+        let vc = storyboard?.instantiateViewController(identifier: "DetailTableViewController") as! DetailScreenTableViewController
+        vc.id = searchResultList[indexPath.row]
         navigationController?.present(vc, animated: true)
     }
 }

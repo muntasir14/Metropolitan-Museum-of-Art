@@ -221,6 +221,9 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="tintColor" systemColor="systemPinkColor"/>
                                                             <state key="normal" backgroundImage="heart" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="favoriteButtonTapped:" destination="xMh-55-iao" eventType="touchUpInside" id="7Rv-gd-Twk"/>
+                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msm-u8-pBv">
                                                             <rect key="frame" x="154" y="0.0" width="192" height="165"/>
@@ -258,7 +261,7 @@
                                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             </collectionViewFlowLayout>
                                                             <cells>
-                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCollectionViewCell" id="7xZ-La-m7h" customClass="GalleryCollectionViewCell" customModule="Dec21iOSPractice" customModuleProvider="target">
+                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCollectionViewCell" id="7xZ-La-m7h" customClass="GalleryCollectionViewCell" customModule="Metropolitan_Museum_of_Art" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="1" width="136" height="214"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="EO9-3q-ENo">
@@ -282,7 +285,7 @@
                                                                     </collectionViewCellContentView>
                                                                     <size key="customSize" width="136" height="214"/>
                                                                     <connections>
-                                                                        <outlet property="galleryImageView" destination="YDM-I2-yR3" id="TIN-uZ-jPS"/>
+                                                                        <outlet property="galleryImageView" destination="YDM-I2-yR3" id="sEd-c8-VBe"/>
                                                                     </connections>
                                                                 </collectionViewCell>
                                                             </cells>
@@ -327,6 +330,12 @@
                             <outlet property="delegate" destination="xMh-55-iao" id="8l8-fh-H8f"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="favoriteButton" destination="Mg3-Ji-o5E" id="DeS-fB-OID"/>
+                        <outlet property="galleryCollectionView" destination="zNo-f6-vk7" id="sNx-aV-zCd"/>
+                        <outlet property="galleryContainerView" destination="h3v-bQ-cBg" id="bEb-ic-qVB"/>
+                        <outlet property="galleryContainerViewHeightConstraint" destination="DfV-XM-Bnq" id="kSd-Tf-M0X"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XOu-LG-buf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
