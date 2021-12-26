@@ -94,7 +94,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="favouriteCollectionViewCell" id="iL2-WM-dRD" customClass="FavouriteCollectionViewCell" customModule="Dec21iOSPractice" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavoriteCollectionViewCell" id="iL2-WM-dRD" customClass="FavoriteCollectionViewCell" customModule="Metropolitan_Museum_of_Art" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="4.5" width="107" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2zq-3v-2bK">
@@ -117,7 +117,7 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="107" height="31"/>
                                         <connections>
-                                            <outlet property="titleLabel" destination="Zdk-jt-xuz" id="8BX-8F-xWf"/>
+                                            <outlet property="titleLabel" destination="Zdk-jt-xuz" id="WwT-Qk-ehS"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -143,7 +143,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="9VH-sq-7Fk"/>
                     <connections>
+                        <outlet property="favoriteCollectionView" destination="4xW-hr-T70" id="Nxb-Rf-Q9W"/>
                         <outlet property="searchBar" destination="C4o-NJ-qWe" id="uNE-af-HQM"/>
+                        <outlet property="searchResultTableView" destination="plf-tO-XO6" id="VRB-Gy-9Yz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JjF-Zm-TYP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
