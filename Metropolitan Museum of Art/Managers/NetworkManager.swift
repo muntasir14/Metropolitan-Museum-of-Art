@@ -14,7 +14,7 @@ class NetworkManager {
     
     private init() { }
     
-    
+    // generalized for all models
     public func get<T : Decodable>(urlString: String, responseType: T.Type, completionHandler: @escaping (_ dataModel: T) -> Void) {
         
         
@@ -28,9 +28,9 @@ class NetworkManager {
             data, response, error in
             
             print("url", url)
-            print("data", data)
-            print("response", response)
-            print("error", error)
+            print("data", data as Any)
+            print("response", response as Any)
+            print("error", error as Any)
             
             var decodedData: T?
             do{

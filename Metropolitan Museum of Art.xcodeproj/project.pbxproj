@@ -85,6 +85,7 @@
 		1614750F2778F47700412E1B /* Metropolitan Museum of Art */ = {
 			isa = PBXGroup;
 			children = (
+				16147540277992D300412E1B /* Managers */,
 				161475272778F56500412E1B /* Model */,
 				161475262778F55B00412E1B /* View */,
 				161475102778F47700412E1B /* AppDelegate.swift */,
@@ -92,11 +93,9 @@
 				161475192778F47B00412E1B /* Assets.xcassets */,
 				1614751E2778F47B00412E1B /* Info.plist */,
 				161475242778F52A00412E1B /* SearchScreenViewController.swift */,
-				1614752E277918E100412E1B /* PersistenceManager.swift */,
 				161475302779294100412E1B /* DetailScreenTableViewController.swift */,
 				161475342779431700412E1B /* FURL.swift */,
 				161475362779433D00412E1B /* AppConfigs.swift */,
-				161475382779444600412E1B /* NetworkManager.swift */,
 				1614753E2779649D00412E1B /* Extensions.swift */,
 			);
 			path = "Metropolitan Museum of Art";
@@ -121,6 +120,15 @@
 				1614753C2779482100412E1B /* SearchResponseModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		16147540277992D300412E1B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1614752E277918E100412E1B /* PersistenceManager.swift */,
+				161475382779444600412E1B /* NetworkManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		C70302340A2E6D6D2BFD45A2 /* Frameworks */ = {

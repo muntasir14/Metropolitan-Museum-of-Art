@@ -45,6 +45,7 @@ class SearchScreenViewController: UIViewController {
         // tableview delegates
         searchResultTableView.dataSource = self
         searchResultTableView.delegate = self
+        searchResultTableView.reloadData()
         
         // collectionview delegates
         favoriteCollectionView.dataSource = self
@@ -54,8 +55,7 @@ class SearchScreenViewController: UIViewController {
         favoriteCollectionView.reloadData()
         print("favorite list:", favoriteList)
         
-        //emptyLabel.isHidden = !favoriteList.isEmpty
-        emptyLabel.isHidden = true
+        emptyLabel.isHidden = !favoriteList.isEmpty
         searchForResultsLabel.isHidden = !searchResultList.isEmpty
     }
     
@@ -154,15 +154,13 @@ extension SearchScreenViewController: SearchCellFavoriteDelegate {
         if makeFavorite {
             emptyLabel.isHidden = true
             favoriteList.append(String(searchResultList[row]))
-            print("add row", row)
             PersistenceManager().addToDefaults(value: String(searchResultList[row]))
             
         } else {
-            print("delete row", row)
+            
             // delete from favorite
             favoriteList = PersistenceManager().getListAfterDeleting(value: String(searchResultList[row]))
         }
-        print("favoriteList", favoriteList)
         favoriteCollectionView.reloadData()
     }
 }
