@@ -18,7 +18,7 @@ class SearchScreenViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var favoriteList: [String] = []
-    var searchResultList: [String] = []
+    var searchResultList: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,9 @@ class SearchScreenViewController: UIViewController {
         favoriteCollectionView.dataSource = self
         favoriteCollectionView.delegate = self
         
-        favoriteList = PersistenceManager(forKey: "favoriteList").getDefaults()
+        favoriteList = PersistenceManager().getDefaults()
+        favoriteCollectionView.reloadData()
+        print("favorite list:", favoriteList)
         
         emptyLabel.isHidden = !favoriteList.isEmpty
         searchForResultsLabel.isHidden = !searchResultList.isEmpty
@@ -56,7 +58,7 @@ class SearchScreenViewController: UIViewController {
 
 extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        32
+        searchResultList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -64,15 +66,16 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell") as! SearchResultTableViewCell
         cell.contentView.tag = indexPath.row
         cell.favoriteButtonDelegate = self
-        
+        cell.idLabel.text = String(searchResultList[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        tableView.deselectRow(at: indexPath, animated: true)
         let vc = storyboard?.instantiateViewController(identifier: "DetailScreenTableViewController") as! DetailScreenTableViewController
-        vc.id = searchResultList[indexPath.row]
-        navigationController?.present(vc, animated: true)
+        vc.id = String(searchResultList[indexPath.row])
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -94,8 +97,27 @@ extension SearchScreenViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-        print("search tapped: \(searchBar.text!)")
+        let key = searchBar.text!
+        activityIndicator.isHidden = false
+        print("search tapped: \(key)")
         view.endEditing(true)
+        handleSearch(key: key)
+    }
+    
+    func handleSearch(key: String) {
+        
+        let searchURLString = FURL.getSearchURL(for: key)
+        NetworkManager.shared.get(urlString: searchURLString, responseType: SearchResponseModel.self) { [self]
+            model in
+            print("model in searchVC:", model)
+            searchResultList = model.objectIDs
+            DispatchQueue.main.async {
+                activityIndicator.isHidden = true
+                searchResultTableView.isHidden = false
+                searchForResultsLabel.isHidden = true
+                searchResultTableView.reloadData()
+            }
+        }
     }
 }
 
@@ -105,5 +127,9 @@ extension SearchScreenViewController: SearchCellFavoriteDelegate {
     func favoriteButtonTapped(row: Int) {
         
         print("favorite tapped for row: \(row)")
+        emptyLabel.isHidden = true
+        favoriteList.append(String(searchResultList[row]))
+        PersistenceManager().addToDefaults(value: String(searchResultList[row]))
+        favoriteCollectionView.reloadData()
     }
 }

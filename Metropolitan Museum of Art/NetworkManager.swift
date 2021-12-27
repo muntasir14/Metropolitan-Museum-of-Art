@@ -15,7 +15,7 @@ class NetworkManager {
     private init() { }
     
     
-    public func get<T : Codable>(urlString: String, responseType: T, completionHandler: @escaping (_ dataModel: T) -> Void) {
+    public func get<T : Decodable>(urlString: String, responseType: T.Type, completionHandler: @escaping (_ dataModel: T) -> Void) {
         
         
         guard let url = URL(string: urlString) else {
