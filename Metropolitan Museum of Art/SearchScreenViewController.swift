@@ -17,6 +17,8 @@ class SearchScreenViewController: UIViewController {
     @IBOutlet weak var searchForResultsLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    
+    
     var favoriteList: [String] = []
     var searchResultList: [Int] = []
     
@@ -75,6 +77,7 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
         tableView.deselectRow(at: indexPath, animated: true)
         let vc = storyboard?.instantiateViewController(identifier: "DetailScreenTableViewController") as! DetailScreenTableViewController
         vc.id = String(searchResultList[indexPath.row])
+        vc.isFavorite = PersistenceManager().isInDefaultsList(value: vc.id)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -15,6 +15,11 @@ class DetailScreenTableViewController: UITableViewController {
     @IBOutlet weak var galleryContainerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var galleryCollectionView: UICollectionView!
     
+    @IBOutlet weak var objectNameLabel: UILabel!
+    @IBOutlet weak var objectTitleLabel: UILabel!
+    @IBOutlet weak var departmentLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     
     var id: String!
     var isFavorite: Bool!
