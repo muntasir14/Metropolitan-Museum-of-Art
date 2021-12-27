@@ -23,6 +23,7 @@
 		161475392779444600412E1B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161475382779444600412E1B /* NetworkManager.swift */; };
 		1614753B2779472F00412E1B /* ObjectResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1614753A2779472F00412E1B /* ObjectResponseModel.swift */; };
 		1614753D2779482100412E1B /* SearchResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1614753C2779482100412E1B /* SearchResponseModel.swift */; };
+		663DC202B8EC57EB78761C7C /* Pods_Metropolitan_Museum_of_Art.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67B17F8D39D131865532062A /* Pods_Metropolitan_Museum_of_Art.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,9 @@
 		161475382779444600412E1B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1614753A2779472F00412E1B /* ObjectResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectResponseModel.swift; sourceTree = "<group>"; };
 		1614753C2779482100412E1B /* SearchResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponseModel.swift; sourceTree = "<group>"; };
+		55C169FDA1C353CA3E39B5BD /* Pods-Metropolitan Museum of Art.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Metropolitan Museum of Art.release.xcconfig"; path = "Target Support Files/Pods-Metropolitan Museum of Art/Pods-Metropolitan Museum of Art.release.xcconfig"; sourceTree = "<group>"; };
+		67B17F8D39D131865532062A /* Pods_Metropolitan_Museum_of_Art.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Metropolitan_Museum_of_Art.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1C49B58324E79DD628ECE85 /* Pods-Metropolitan Museum of Art.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Metropolitan Museum of Art.debug.xcconfig"; path = "Target Support Files/Pods-Metropolitan Museum of Art/Pods-Metropolitan Museum of Art.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				663DC202B8EC57EB78761C7C /* Pods_Metropolitan_Museum_of_Art.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +67,8 @@
 			children = (
 				1614750F2778F47700412E1B /* Metropolitan Museum of Art */,
 				1614750E2778F47700412E1B /* Products */,
+				CFF4437655E97CD12111E7C1 /* Pods */,
+				C70302340A2E6D6D2BFD45A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +120,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C70302340A2E6D6D2BFD45A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				67B17F8D39D131865532062A /* Pods_Metropolitan_Museum_of_Art.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CFF4437655E97CD12111E7C1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F1C49B58324E79DD628ECE85 /* Pods-Metropolitan Museum of Art.debug.xcconfig */,
+				55C169FDA1C353CA3E39B5BD /* Pods-Metropolitan Museum of Art.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -120,9 +145,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 161475212778F47B00412E1B /* Build configuration list for PBXNativeTarget "Metropolitan Museum of Art" */;
 			buildPhases = (
+				AF4E5060A68BB88501A86768 /* [CP] Check Pods Manifest.lock */,
 				161475092778F47700412E1B /* Sources */,
 				1614750A2778F47700412E1B /* Frameworks */,
 				1614750B2778F47700412E1B /* Resources */,
+				43A2723EC7F5FFC706E09A93 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -177,6 +204,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		43A2723EC7F5FFC706E09A93 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Metropolitan Museum of Art/Pods-Metropolitan Museum of Art-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Metropolitan Museum of Art/Pods-Metropolitan Museum of Art-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Metropolitan Museum of Art/Pods-Metropolitan Museum of Art-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF4E5060A68BB88501A86768 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Metropolitan Museum of Art-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		161475092778F47700412E1B /* Sources */ = {
@@ -339,6 +408,7 @@
 		};
 		161475222778F47B00412E1B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1C49B58324E79DD628ECE85 /* Pods-Metropolitan Museum of Art.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -358,6 +428,7 @@
 		};
 		161475232778F47B00412E1B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55C169FDA1C353CA3E39B5BD /* Pods-Metropolitan Museum of Art.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
