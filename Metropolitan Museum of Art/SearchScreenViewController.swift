@@ -26,7 +26,7 @@ class SearchScreenViewController: UIViewController {
         super.viewDidLoad()
         
         // clean userDefaults
-         UserDefaults.standard.setValue([], forKey: "favoriteList")
+         // UserDefaults.standard.setValue([], forKey: "favoriteList")
     }
     
     override func viewWillAppear(_ animated: Bool) {
