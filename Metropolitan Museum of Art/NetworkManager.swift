@@ -27,6 +27,11 @@ class NetworkManager {
         URLSession.shared.dataTask(with: url) {
             data, response, error in
             
+            print("url", url)
+            print("data", data)
+            print("response", response)
+            print("error", error)
+            
             var decodedData: T?
             do{
                 decodedData = try JSONDecoder().decode(T.self, from: data!)
@@ -34,6 +39,7 @@ class NetworkManager {
             } catch {
                 
                 // handle error
+                print("decode error:", error)
             }
             
             guard let safelyDecodedData = decodedData else {

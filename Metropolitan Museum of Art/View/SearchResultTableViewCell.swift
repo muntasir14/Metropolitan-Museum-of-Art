@@ -10,7 +10,7 @@ import UIKit
 // to get the button press action from search screen
 protocol SearchCellFavoriteDelegate {
     
-    func favoriteButtonTapped(row: Int)
+    func favoriteButtonTapped(row: Int, makeFavorite: Bool)
 }
 
 
@@ -44,21 +44,15 @@ class SearchResultTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+    }
+    
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {
         
-        if isFavorite {
-            
-            // remove from favorite
-            
-            isFavorite = false
-        } else {
-            
-            // add in favorite list
-            
-            isFavorite = true
-        }
-        
-        favoriteButtonDelegate.favoriteButtonTapped(row: contentView.tag)
+        isFavorite = !isFavorite
+        favoriteButtonDelegate.favoriteButtonTapped(row: contentView.tag, makeFavorite: isFavorite)
     }
     
 

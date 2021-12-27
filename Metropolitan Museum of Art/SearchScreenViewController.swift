@@ -24,6 +24,9 @@ class SearchScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // clean userDefaults
+        UserDefaults.standard.setValue([], forKey: "favoriteList")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +38,7 @@ class SearchScreenViewController: UIViewController {
     // UI Initialization
     func initUI() {
         
+        navigationController?.title = "Search Screen"
         // searchBar delegate
         searchBar.delegate = self
         
@@ -50,7 +54,8 @@ class SearchScreenViewController: UIViewController {
         favoriteCollectionView.reloadData()
         print("favorite list:", favoriteList)
         
-        emptyLabel.isHidden = !favoriteList.isEmpty
+        //emptyLabel.isHidden = !favoriteList.isEmpty
+        emptyLabel.isHidden = true
         searchForResultsLabel.isHidden = !searchResultList.isEmpty
     }
     
@@ -84,7 +89,8 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
 
 extension SearchScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        favoriteList.count
+        print("fav list", favoriteList)
+        return favoriteList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -93,6 +99,14 @@ extension SearchScreenViewController: UICollectionViewDelegate, UICollectionView
         cell.titleLabel.text = favoriteList[indexPath.row]
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let id = favoriteList[indexPath.row]
+        let vc = storyboard?.instantiateViewController(identifier: "DetailScreenTableViewController") as! DetailScreenTableViewController
+        vc.id = id
+        vc.isFavorite = true
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -127,12 +141,21 @@ extension SearchScreenViewController: UISearchBarDelegate {
 
 extension SearchScreenViewController: SearchCellFavoriteDelegate {
     
-    func favoriteButtonTapped(row: Int) {
+    func favoriteButtonTapped(row: Int, makeFavorite: Bool) {
         
         print("favorite tapped for row: \(row)")
-        emptyLabel.isHidden = true
-        favoriteList.append(String(searchResultList[row]))
-        PersistenceManager().addToDefaults(value: String(searchResultList[row]))
+        if makeFavorite {
+            emptyLabel.isHidden = true
+            favoriteList.append(String(searchResultList[row]))
+            print("add row", row)
+            PersistenceManager().addToDefaults(value: String(searchResultList[row]))
+            
+        } else {
+            print("delete row", row)
+            // delete from favorite
+            favoriteList = PersistenceManager().getListAfterDeleting(value: String(searchResultList[row]))
+        }
+        print("favoriteList", favoriteList)
         favoriteCollectionView.reloadData()
     }
 }

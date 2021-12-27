@@ -44,4 +44,13 @@ class PersistenceManager {
         return valueList.contains(value)
     }
     
+    public func getListAfterDeleting(value: String) -> [String] {
+        
+        if let index = valueList.firstIndex(of: value) {
+            valueList.remove(at: index)
+        }
+        print("valuelist", valueList)
+        return valueList
+    }
+    
 }
