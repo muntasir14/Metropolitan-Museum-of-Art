@@ -26,7 +26,7 @@ class SearchScreenViewController: UIViewController {
         super.viewDidLoad()
         
         // clean userDefaults
-        UserDefaults.standard.setValue([], forKey: "favoriteList")
+         UserDefaults.standard.setValue([], forKey: "favoriteList")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,7 +73,15 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableViewCell") as! SearchResultTableViewCell
         cell.contentView.tag = indexPath.row
         cell.favoriteButtonDelegate = self
-        cell.idLabel.text = String(searchResultList[indexPath.row])
+        let id = String(searchResultList[indexPath.row])
+        cell.idLabel.text = id
+        
+        // for reusable cells
+        if favoriteList.contains(id) {
+            cell.isFavorite = true
+        } else {
+            cell.isFavorite = false
+        }
         return cell
     }
     
@@ -89,7 +97,6 @@ extension SearchScreenViewController: UITableViewDelegate, UITableViewDataSource
 
 extension SearchScreenViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("fav list", favoriteList)
         return favoriteList.count
     }
     

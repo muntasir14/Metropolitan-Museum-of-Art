@@ -45,11 +45,13 @@ class PersistenceManager {
     }
     
     public func getListAfterDeleting(value: String) -> [String] {
-        
+        print("PM del, in valuelist", valueList)
         if let index = valueList.firstIndex(of: value) {
             valueList.remove(at: index)
         }
-        print("valuelist", valueList)
+        print("PM del, out valuelist", valueList)
+        defaults.setValue(valueList, forKey: key)
+        
         return valueList
     }
     
